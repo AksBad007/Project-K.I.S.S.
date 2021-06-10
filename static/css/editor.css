@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.coder-space {
+    width: 81%;
+}
+
+textarea {
+    width: 32.7%;
+}
+
+.editor-menu {
+    width: 81%;
+    height: 6rem;
+    background-color: var(--editor-menu-bg);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px 0 5px 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.btn {
+    border: none;
+    outline: none;
+    padding: 8px 7px;
+    border-radius: 3px;
+    font-size: 1.6rem;
+    margin-right: 8px;
+    min-width: 5rem;
+}
+
+.editor {
+    width: 95%;
+    font-size: 1.6rem;
+    outline: none;
+    padding: 1rem 0 0 1rem;
+    border-color: #ccc;
+}
+
+textarea::placeholder, textarea::-moz-placeholder, textarea::-webkit-input-placeholder {
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.code{
+    border: 1px solid #000;
+    margin: 0 0.16%;
+    height: 350px;
+    background-color: var(--editor-menu-bg);
+    color: var(--txtarea-color);
+}
+
+footer {
+    text-align: center;
+}
+
+.resizer { display:flex; padding:0; resize:vertical; overflow:hidden}
+.resizer > .resized { flex-grow:1; padding:0; border:0 }
+
+iframe {
+    width: 100%;
+    border: 1px solid #000;
+    background-color: white;
+    height: 404px;
+    margin: 0 0 0 0.4%;
+}
+
+div.toggle-btns {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+div.toggle-btn {
+  margin:20px;
+}
+.toggle-btn label {
+  position:relative;
+  display:block;
+  width:100px;
+  height:50px;
+  background:#aaa;
+  border-radius:30px;
+  transition:all 300ms linear;
+}
+ 
+.toggle-btn label:before {
+  position:relative;
+  content:"";
+  width:40px;
+  height:40px;
+  background:#ddd;
+  display:block;
+  border-radius:50%;
+  top:5px;
+  left:10px;
+  transition:all 300ms linear;
+}
+.toggle-btn.red input:checked + label {
+  background:orangered;
+}
+.toggle-btn input:checked + label {
+  background:#00acee;
+}
+.toggle-btn input:checked + label:before {
+  left:50px;
+}
+ 
+.toggle-btn input {
+  display:none;
+}
+
+@media (max-width: 1370px) {
+    .coder-space, .editor-menu {
+        width: 100%;
+    }
+
+    textarea {
+        width: 32.6%;
+    }
+    
+    .editor {
+        width: 100%;
+    }
+
+    iframe, .code {
+        height: 260px;
+    }
+}

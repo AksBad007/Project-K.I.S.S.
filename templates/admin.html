@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/signin.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/custom.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/accDrop.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/admin.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/loader.css')}}">
+	<link rel="shortcut icon" href="{{url_for('static', filename='img/KISS.png')}}" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d21b88ce77.js" crossorigin="anonymous"></script>
+    <title>Admin Dashboard</title>
+</head>
+<body class="preload">
+    <div class="loader-wrapper">
+        <div class="body">
+        <span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <div class="base">
+          <span></span>
+          <div class="face"></div>
+        </div>
+        </div>
+        <div class="longfazers">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        </div>
+        <h1 class="redirect">Loading...</h1>
+    </div>
+
+    <header class="cd-main-header">
+        <div class="cd-main-header__logo"><a href="/" onmouseover="this.style.color='#000'"><img style="width: 10%;" src="{{url_for('static', filename='img/KISS.png')}}"><h1 class="emph title">K.I.S.S. - Keep It Simple Stupid</h1></a></div>
+        <div class="action">
+			<div class="profile">
+				<img src="{{url_for('static', filename='img/admin.jpg')}}" alt="admin-pic">
+			</div>
+			<div class="menu">
+				<h3>{{ username }}<br><span>Admin</span></h3>
+				<ul>
+                    <li><img src="{{url_for('static', filename='img/code.jpg')}}" alt="edit"><a href="/playground">Code</a></li>
+					<li><img src="{{url_for('static', filename='img/edit.png')}}" alt="edit"><a href="/edit">Edit Profile</a></li>
+					<li><img src="{{url_for('static', filename='img/help.png')}}" alt="help"><a href="/doc">Help</a></li>
+					<li><img src="{{url_for('static', filename='img/log-out.png')}}" alt="logout"><a href="/logout">Logout</a></li>                    
+				</ul>
+			</div>
+		</div>
+    </header>
+
+    <h1 id="welcome">
+        <span data-0-top="opacity:0;right:50px;" data-200-top="opacity:1;right:0px;">Welcome</span> 
+        <span data-0-top="opacity:0;left:50px;" data-200-top="opacity:1;left:0px;">Master</span>
+    </h1>
+    <h2 class="emph offer" data-center-center="opacity:1;bottom:0;" data-0-bottom="opacity:0;bottom:-100px">So Far We Have...</h2>
+
+    <section id="info">
+        <div class="admin-menu" data-center-center="opacity:2;right:0;" data-0-bottom="opacity:0;right:100px;">
+            <ul>
+                <li><a id="summary">View Summary</a></li><hr>
+                <li><a id="users">Manage Users</a></li><hr>
+                <li><a id="submissions">View Submissions</a></li><hr>
+                <li><a href="/changes" target="_blank" rel="noopener noreferrer">Go to Changelog Section <i class="fas fa-external-link-alt"></i></a></li><hr>
+                <li><a href="/admin/db" target="_blank">Manage DataBases <i class="fas fa-database"></i></a></li>
+            </ul>
+        </div>
+
+        <div class="summary">
+            <div class="float">
+                <div class="entry"><h1>3</h1><br>Modules</div>
+                <div class="entry"><h1>{{ userNo }}</h1><br>Users</div>
+            </div>
+            <div class="float">
+                <div class="entry"><h1>{{ changeNo }}</h1><br>Changelog Entries</div>
+                <div class="entry"><h1>{{ submitNo }}</h1><br>Submissions Pending</div>
+            </div>
+        </div>
+        
+        <div class="users">
+            <ol>
+                {% for user in users %} 
+                <li>
+                    <ul>
+                        <li>Name: {{ user['Name'] }}</li>
+                        <li>Roll No.: {{ user['Roll No'] }}</li>
+                        <li>Role: {{ user['Role'] }}</li>
+                        <li><button type="button" onclick="location.href='/admin/db'" class="btn btn-4 btn-sep icon-send">Edit User Info.</button></li>
+                    </ul>
+                </li>
+                {% endfor %}                
+            </ol>
+        </div>
+
+        <div class="submissions">
+            <ol>
+                {% for submission in submits %}
+                <li>
+                    <ul>
+                        <li>Title: {{ submission['Title'] }}</li>
+                        <li>Link: <a href="{{ submission['Link'] }}">{{ submission['Link'] }}</a></li>
+                        <li>Description: {{ submission['Description'] }}</li>
+                        <li style="text-align: right;">- {{ submission['Name'] }}</li>
+                        <li><button type="button" onclick="location.href='/admin/db'" class="btn btn-4 btn-sep icon-send">Edit Submission</button></li>
+                    </ul>
+                </li>
+                {% endfor %}              
+            </ol>
+        </div>
+    </section>    
+
+    <footer class="love">
+        Made with ❤️ by <a href="https://aksbad007.github.io/CV/">Akshat Arora</a>.
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="{{url_for('static', filename='js/loader-min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/skrollr.js')}}"></script>
+    <script src="{{url_for('static', filename='js/menu.js')}}"></script>
+	<script type="text/javascript"> var s = skrollr.init({forceHeight: false}); </script>    
+</body>
+</html>

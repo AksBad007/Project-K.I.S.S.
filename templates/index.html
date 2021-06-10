@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://allfont.net/allfont.css?fonts=star-jedi" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Padauk&display=swap" rel="stylesheet"> 
+	<link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<link rel="stylesheet" href="{{url_for('static', filename='css/signin.css')}}">
+	<link rel="stylesheet" href="{{url_for('static', filename='css/loader.css')}}">
+	<link rel="stylesheet" href="{{url_for('static', filename='css/accDrop.css')}}">
+	<link rel="stylesheet" href="{{url_for('static', filename='css/custom.css')}}">
+	<link rel="shortcut icon" href="{{url_for('static', filename='img/KISS.png')}}" type="image/x-icon">	
+	<title>Project K.I.S.S.</title>
+</head>
+<body class="preload">
+	<div class="loader-wrapper">
+		<div class="body">
+		<span>
+		  <span></span>
+		  <span></span>
+		  <span></span>
+		  <span></span>
+		</span>
+		<div class="base">
+		  <span></span>
+		  <div class="face"></div>
+		</div>
+	  </div>
+	  <div class="longfazers">
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+	  </div>
+	  <h1 class="redirect">Loading...</h1>
+	</div>
+	
+	<header class="cd-main-header">
+		<div class="cd-main-header__logo"><a href="#0" onmouseover="this.style.color='#000'"><img style="width: 10%;" src="{{url_for('static', filename='img/KISS.png')}}"><h1 class="emph title">K.I.S.S. - Keep It Simple Stupid</h1></a></div>
+		
+		<nav class="cd-main-nav js-main-nav">
+			{% if 'username' not in session %}
+			<ul class="cd-main-nav__list js-signin-modal-trigger">
+				<li><a class="cd-main-nav__item cd-main-nav__item--signup" href="#0" data-signin="signup" onmouseover="this.style.color='#fff'">Get Started</a></li>
+			</ul>
+		</nav>
+
+		{% else: %}
+		<div class="action">
+			<div class="profile">
+				{% if session['role'] == 'Member' %}
+				<img src="{{url_for('static', filename='img/user.webp')}}" alt="user-pic">
+				{% elif session['role'] == 'Admin' %}
+				<img src="{{url_for('static', filename='img/admin.jpg')}}" alt="admin-pic">
+				{% endif %}
+			</div>
+			<div class="menu">
+				<h3>{{ username }}<br><span>{{ role }}</span></h3>
+				<ul>
+					{% if session['role'] == 'Admin' %}
+					<li><img src="{{url_for('static', filename='img/admin.jpg')}}" alt="edit"><a href="/admin">Admin Space</a></li>
+					{% endif %}
+					<li><img src="{{url_for('static', filename='img/code.jpg')}}" alt="edit"><a href="/playground">Code</a></li>
+					<li><img src="{{url_for('static', filename='img/edit.png')}}" alt="edit"><a href="/edit">Edit Profile</a></li>
+					<li><img src="{{url_for('static', filename='img/help.png')}}" alt="help"><a href="/doc">Help</a></li>
+					<li><img src="{{url_for('static', filename='img/log-out.png')}}" alt="logout"><a href="/logout">Logout</a></li>                    
+				</ul>
+			</div>
+		</div>
+		{% endif %}			
+	</header>
+
+	<div class="cd-signin-modal js-signin-modal">
+		<div class="cd-signin-modal__container">
+			<ul class="cd-signin-modal__switcher js-signin-modal-switcher js-signin-modal-trigger">
+				<li><a href="#0" data-signin="login" data-type="login">Sign in</a></li>
+				<li><a href="#0" data-signin="signup" data-type="signup">New account</a></li>
+			</ul>
+
+			<div class="cd-signin-modal__block js-signin-modal-block" data-type="login">
+				<form class="cd-signin-modal__form" action="/login" method="POST">
+					<p class="cd-signin-modal__fieldset">
+						<label class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace" for="signin-email">Roll No.</label>
+						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" name="roll" id="signin-email" type="number" min="27501880501" placeholder="Roll No.">
+						<span class="cd-signin-modal__error">Please specify valid Roll Number.</span>
+					</p>
+
+					<p class="cd-signin-modal__fieldset">
+						<label class="cd-signin-modal__label cd-signin-modal__label--password cd-signin-modal__label--image-replace" for="signin-password">Password</label>
+						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" name="password" id="signin-password" type="password"  placeholder="Password">
+						<a href="#0" class="cd-signin-modal__hide-password js-hide-password">Show</a>
+						<span class="cd-signin-modal__error">Please specify a valid Password.</span>
+					</p>
+
+					<p class="cd-signin-modal__fieldset">
+						<input class="cd-signin-modal__input cd-signin-modal__input--full-width" type="submit" value="Login">
+					</p>
+				</form>
+				
+				<p class="cd-signin-modal__bottom-message js-signin-modal-trigger"><a href="#0" data-signin="reset">Forgot your password?</a></p>
+			</div>
+
+			<div class="cd-signin-modal__block js-signin-modal-block" data-type="signup">
+				<form class="cd-signin-modal__form" action="/signup" method="POST">
+					<p class="cd-signin-modal__fieldset">
+						<label class="cd-signin-modal__label cd-signin-modal__label--username cd-signin-modal__label--image-replace" for="signup-username">Username</label>
+						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" name="name" id="signup-username" type="text" placeholder="Username">
+						<span class="cd-signin-modal__error">Invalid Username.</span>
+					</p>
+
+					<p class="cd-signin-modal__fieldset">
+						<label class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace" for="signup-email">Roll No.</label>
+						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" name="roll" id="signup-email" type="number" min="27501880501" placeholder="Roll No.">
+						<span class="cd-signin-modal__error">Please specify valid Roll Number.</span>
+					</p>
+
+					<p class="cd-signin-modal__fieldset">
+						<label class="cd-signin-modal__label cd-signin-modal__label--password cd-signin-modal__label--image-replace" for="signup-password">Password</label>
+						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" name="password" id="signup-password" type="password"  placeholder="Password">
+						<a href="#0" class="cd-signin-modal__hide-password js-hide-password">Show</a>
+						<span class="cd-signin-modal__error">Please specify a valid Password.</span>
+					</p>
+
+					<p class="cd-signin-modal__fieldset">
+						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding" type="submit" value="Create account">
+					</p>
+				</form>
+			</div>
+
+			<div class="cd-signin-modal__block js-signin-modal-block" data-type="reset">
+				<p class="cd-signin-modal__message">Lost your password? Please enter your University Roll text. You will receive an email for further instructions.</p>
+
+				<form class="cd-signin-modal__form" action="/recovery">
+					<p class="cd-signin-modal__fieldset">
+						<label class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace" for="reset-email">Roll No.</label>
+						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" name="roll" id="reset-email" type="number" min="27501880501" placeholder="Roll No.">
+						<span class="cd-signin-modal__error">Please specify valid Roll Number.</span>
+					</p>
+
+					<p class="cd-signin-modal__fieldset">
+						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding" type="submit" value="Reset password">
+					</p>
+				</form>
+
+				<p class="cd-signin-modal__bottom-message js-signin-modal-trigger"><a href="#0" data-signin="login">Back to log-in</a></p>
+			</div>
+			<a href="#0" class="cd-signin-modal__close js-close">Close</a>
+		</div>
+	</div>
+
+	<div class="video-container">
+  		<video autoplay muted loop>
+   			<source src="{{url_for('static', filename='img/star_bg.mp4')}}" type="video/mp4" />
+  		</video>
+ 		 <div id="hello">
+			<h1 data-0-top="opacity:0;left:50px;" data-200-top="opacity:1;left:0px;">HELLo THERE !!!</h1>
+		</div>
+	</div>	
+
+	<section id="about">
+        <h1 class="emph offer" data-center-center="opacity:1;bottom:0;" data-0-bottom="opacity:0;bottom:-400px">What We Offer ?</h1>
+        <div style="margin-top: 3%;" class="container-md">
+            <div class="row">
+                <div class="col">
+                    <img id="gif" src="{{url_for('static', filename='img/editor.gif')}}" alt="Editor GIF">
+                </div>
+                <div class="col right" data-center-center="opacity:1;right:-50px;" data-0-bottom="opacity:0;right:500px;">
+                    <p id="desc">Practice & Satisfy all your Front-End Web-Dev queries using our minimalistic editor, supporting latest HTML, CSS and JavaScript versions.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col left" data-center-center="opacity:1;left:-50px;" data-0-bottom="opacity:0;left:500px;">
+                    <p id="desc">Never forget any of your important tasks. ALWAYS there for u will be our handy To-Do List reminding you of what matters the most.</p>                                
+                </div>
+                <div class="col">
+                    <img id="gif" src="{{url_for('static', filename='img/list.gif')}}" alt="List GIF">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img id="gif" src="{{url_for('static', filename='img/music.gif')}}" alt="Music GIF">
+                </div>
+                <div class="col right" data-center-center="opacity:1;right:-50px;" data-0-bottom="opacity:0;right:500px;">
+                    <p id="desc">Feeling bored? Craving some beats? Don't feel shy to reach upto our Music Player while taking a break.<br>(P.S. I selected the songs myself.)</p>
+                </div>
+            </div>
+			<div class="row">
+                <div id="doc" class="col left" data-center-center="opacity:1;left:-50px;" data-0-bottom="opacity:0;left:500px;">
+                    <p id="desc">Can't figure out how to use something? Check the 
+						<div class="doc-button">
+							<a href="/doc"><u>Documentation</u></a>
+						  </div>
+					</p>                                
+                </div>
+                <div class="col" data-center-center="bottom:0;" data-0-bottom="bottom:-400px">
+                    <img id="arrow" src="{{url_for('static', filename='img/docs.gif')}}"><br>
+					<span id="eye">Or ask Brother Eye</span>
+                </div>
+            </div>
+			<div id="future" data-center-center="opacity:1;top:0;" data-0-bottom="opacity:0;top:-100px">
+            	<p>And more to come in the future.....</p>
+			</div>
+        </div>
+    </section>
+
+	<section id="submission">
+		<div class="contribute">
+			<h1 class="contri-desc" data-center-center="bottom:0;" data-0-bottom="bottom:-400px">In Fact, you can always contribute to this ever growing app by submitting your own built modules. After all, that's what open-sourcing is all about, Isn't it?</h1>
+			<button class="glow-on-hover" type="button" data-center-center="bottom:0;" data-0-bottom="bottom:-200px"><a id="contri-button" href="/submission">I GOT SOMETHING TO SUBMIT<br>!!!</a></button>
+		</div>
+	</section>
+
+	{% if 'username' not in session %}
+	<section id="demo">
+		<div id="try-it" data-center-center="opacity:1;top:0;" data-0-bottom="opacity:0;top:-150px">
+			<h2>Don't wanna Register?<br>That's fine.<br>Give it a try, decide later...</h2>
+			<div class="wrapper">
+				<a class="try-button" href="/demo">Try It!!</a>
+			</div>
+		</div>		
+	</section>
+	{% endif %}
+
+	<footer class="site-footer">
+		<div class="container">
+		  <div class="row">
+			<div class="col-sm-12 col-md-6">
+			  <h6>About</h6>
+			  <p class="text-justify">The project is aimed to be an online productivity suite where the users,
+				preferably students, can practice/research their coding skills, while also
+				enjoying an intuitive environment that will keep them immersed.</p>
+			</div>
+  
+			<div class="col-xs-6 col-md-3">
+			</div>
+  
+			<div class="col-xs-6 col-md-3">
+			  <h6>Quick Links</h6>
+			  <ul class="footer-links">
+				<li><a href="/changes">Changelog</a></li>
+				<li><a href="/submission">Contribute</a></li>
+				<li><a href="/doc">Documentation</a></li>
+			  </ul>
+			</div>
+		  </div>
+		  <hr>
+		</div>
+		<div class="container">
+		  <div class="row">
+			<div class="col-md-8 col-sm-6 col-xs-12">
+			  <p class="copyright-text">&copy; 2021 Made with ❤️ by 
+		   <a href="https://aksbad007.github.io/CV/">Akshat Arora</a>.
+			  </p>
+			</div>
+  
+		  </div>
+		</div>
+  	</footer>	  
+	 
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  	<script src="{{url_for('static', filename='js/placeholders.min.js')}}"></script>	
+  	<script src="{{url_for('static', filename='js/main.js')}}"></script>
+	<script src="{{url_for('static', filename='js/loader-min.js')}}"></script>
+	<script src="{{url_for('static', filename='js/skrollr.js')}}"></script>
+	<script type="text/javascript"> var s = skrollr.init({forceHeight: false}); </script> 
+</body>
+</html>

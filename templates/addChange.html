@@ -1,0 +1,14 @@
+{% extends "changelogLayout.html" %}
+{% block title%}Add new Changes{% endblock %}
+{% block content %}
+<h1>So What's New Boss ??</h1><br>
+<form action="/changes/add" method="POST">
+    <div class="form-group">
+        <label>Module/Module Version:</label>
+        <input class="form-control" type="text" name="ver" autocomplete="off"><br>
+        <label>Description:</label>
+        <textarea class="form-control" name="desc" cols="100" rows="10"></textarea> 
+    </div>
+    <button class="btn btn-primary" type="submit">Publish</button>
+</form>
+{% endblock %}

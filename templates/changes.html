@@ -1,0 +1,8 @@
+{% extends "changelogLayout.html" %}
+{% block title%}Changelog{% endblock %}
+{% block content %}
+{% for change in changes %}
+    <h1>{{ change['ver'] }}</h1>
+    <p>{{ change['desc'] }}</p>
+{% endfor %}
+{% endblock %}
