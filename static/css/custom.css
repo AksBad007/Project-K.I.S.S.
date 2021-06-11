@@ -16,6 +16,11 @@
   100% { background-position: 0 0; }
 }
 
+@font-face {
+  font-family: 'Star Jedi';
+  src: url('../Starjedi.ttf') format('truetype');
+}
+
 * {
   position: relative;
 }
