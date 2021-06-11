@@ -143,7 +143,6 @@ pyrsistent==0.15.4
 PySocks==1.7.1
 pytest==3.3.0
 pytest-flask==0.11.0
-python-apt==2.0.0+ubuntu0.20.4.5
 python-dateutil==2.8.0
 python-debian===0.1.36ubuntu1
 python-dotenv==0.15.0
