@@ -10,7 +10,6 @@ beautifulsoup4==4.9.3
 bleach==3.3.0
 blinker==1.4
 blis==0.7.4
-Brlapi==0.7.0
 cachelib==0.1.1
 cachetools==4.2.2
 catalogue==2.0.4
