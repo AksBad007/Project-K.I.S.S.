@@ -16,7 +16,7 @@ KISS.register_blueprint(Admin)
 
 bcrypt = Bcrypt(KISS)
 
-client = MongoClient("mongodb+srv://"+os.environ.get('DB_USER')+":"+os.environ.get('y')+"@cluster0.azvnt.mongodb.net/kissDB?retryWrites=true&w=majority")
+client = MongoClient("mongodb+srv://"+os.environ.get('DB_USER')+":"+os.environ.get('DB_PASSWORD')+"@cluster0.azvnt.mongodb.net/kissDB?retryWrites=true&w=majority")
 db = client["kissDB"]
 
 @KISS.route('/')
