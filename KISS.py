@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request, redirect, session, url_for, abort, flash
 from flask_session import Session
 from flask_bcrypt import Bcrypt
@@ -8,14 +9,14 @@ from Admin import Admin
 import datetime
 
 KISS = Flask(__name__)
-KISS.secret_key = "Nigga."
+KISS.secret_key = os.environ.get('SECRET_KEY')
 
 KISS.register_blueprint(Changelog)
 KISS.register_blueprint(Admin)
 
 bcrypt = Bcrypt(KISS)
 
-client = MongoClient("mongodb+srv://AksBad007:imbatman17@cluster0.azvnt.mongodb.net/kissDB?retryWrites=true&w=majority")
+client = MongoClient("mongodb+srv://"+os.environ.get('DB_USER')+":"+os.environ.get('DB_PASSWORD')+"@cluster0.azvnt.mongodb.net/kissDB?retryWrites=true&w=majority")
 db = client["kissDB"]
 
 @KISS.route('/')
@@ -145,4 +146,4 @@ def page_not_found(e):
     return render_template('404.html'), 404
 
 if __name__ == '__main__':
-    KISS.run(debug = True)
+    KISS.run()
