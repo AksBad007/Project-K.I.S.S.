@@ -1,0 +1,1 @@
+web: gunicorn --pythonpath Project-K.I.S.S. KISS:KISS
