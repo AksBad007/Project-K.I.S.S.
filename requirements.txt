@@ -19,7 +19,6 @@ chardet==4.0.0
 ChatterBot==1.0.5
 click==7.1.2
 colorama==0.4.4
-command-not-found==0.3
 configobj==5.0.6
 cryptography==3.4.7
 cupshelpers==1.0
