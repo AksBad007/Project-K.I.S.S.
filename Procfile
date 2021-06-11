@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath KISS:KISS
+web: gunicorn KISS:KISS
