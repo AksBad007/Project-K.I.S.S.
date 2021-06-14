@@ -150,10 +150,6 @@
   transform: scaleX(1.74);
 }
 
-#gif {
-  z-index: 1;
-}
-
 .right {
   border-radius: 50px 0 0 50px;
 }
@@ -166,6 +162,17 @@
   flex-direction: column;
 }
 
+.editor-img {
+  border-radius: 50px;
+  right: 5%;
+  top: 15%;
+}
+
+.list {
+  top: 25%;
+  left: 10%;
+}
+
 #desc, #future {
   margin: 5% 0;
   font-size: xx-large;
@@ -173,18 +180,6 @@
   color: #931a25;
   font-family: 'Josefin Sans', sans-serif;
   padding: 0 50px;
-}
-
-#eye {
-  font-size: xx-large;
-  font-weight: 1000;
-  position: relative;
-  top: -400px;
-  left: 260px;
-  animation-name: span;
-  animation-duration: 1s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
 }
 
 #future {

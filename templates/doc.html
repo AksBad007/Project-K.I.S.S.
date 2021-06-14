@@ -127,7 +127,7 @@
         <section id="start" class="main-section">          
           <header>Getting Started</header>
           <header id="signup" class="subhead">SignUp</header>
-          <img src="" alt="signup">
+          <img src="{{url_for('static', filename='img/signup.png')}}" alt="signup">
           <p>You can sign up free for our app by using the Signup section inside the <span>Login/Signup</span> link located at the top of the home page and demo page.</p>
           <p>While signing up, we ask for nothing but three key pieces of information from you:
             <ul>
@@ -147,7 +147,7 @@
           <p>After Signing Up, the Login/Signup section will be replaced by a drop menu which we call "Your Account" section.</p>
 
           <header id="login" class="subhead">Login</header>
-          <img src="" alt="login">
+          <img src="{{url_for('static', filename='img/login.png')}}" alt="login">
           <p>Just besides the Signup section is the Login section, where you can login as either a <span>Member</span> or an <span>Admin</span>, depending upon your role.</p>
           <p>While logging in, we will ask for:
             <ul>
@@ -158,7 +158,7 @@
           <p>Similar to the Signup process, after Logging in, you will see "Your Account" section on top.</p>
 
           <header id="demo" class="subhead">Demo</header>
-          <img src="" alt="demo">
+          <img src="{{url_for('static', filename='img/home-demo.png')}}" alt="demo">
           <p>We understand that some users may wanna try what we have to offer first before Signing up. That's why you can use demo version of this Project by simply heading over to the <span>Demo</span> section on the home page as shown above.</p>
           <p>Just hit <span>Try it</span> and you will be taken to a demo version of the <span>Coding Playground</span>.</p>
           <p>Unfortunately, this version is independent of all the storage services, that is you cannot use Modules like <span>ToDo List</span> which depend heavily on database storage. However, to use such modules as well, you can always signup from the Signup section.</p>
@@ -168,7 +168,7 @@
         <section id="playground" class="main-section">          
           <header>Playground</header>
           <p>To get started with working in the playground, let's have a look at the interface first.</p>   
-          <img src="" alt="playground">       
+          <img src="{{url_for('static', filename='img/playground.png')}}" alt="playground">       
           
           <header id="code" class="subhead">Code Editor</header> 
           <p>The editor space will come with 3 coding areas where you can practice HTML, CSS and JavaScript. Just head over the respective text box and start typing. The interpreter will immediately pick up your keystrokes and execute commands/statements almost immediately.</p>
@@ -198,7 +198,7 @@
         <section id="accDrop" class="main-section">          
           <header>Your Account</header>
           <p>Signing Up for an account entitles you with some options. These options are accessible from the <span>Your Account</span> dropdown menu located on the top of both the home page and playground page.</p>
-          <img src="" alt="accDrop">
+          <img src="{{url_for('static', filename='img/accDrop.png')}}" alt="accDrop">
           <p>Given below is the explanation of all the options:
             <ul>
               <li>Code: takes you to the "Coding Playground"</li>
@@ -214,8 +214,8 @@
         <section id="submit" class="main-section">          
           <header>Submission of Modules</header>          
           <p>Doesn't matter if you are a user or not, you can contribute to the project by heading over to the <span>Submit</span> section from the home page.</p>
-          <img src="" alt="home-submit">
-          <img src="" alt="submit-page">
+          <img src="{{url_for('static', filename='img/home-submit.png')}}" alt="home-submit">
+          <img src="{{url_for('static', filename='img/submit.png')}}" alt="submit-page">
           <p>After clicking on the <span>I GOT SOMETHING TO SUBMIT!!!</span> button, you will be taken to the submission page. There, you will have to provide four things:
             <ul>
               <li>Your Name</li>
@@ -231,8 +231,7 @@
         <section id="contact" class="main-section">          
           <header>Contact Us Page</header>          
           <p>For assignments of roles, report any bugs or any other query, you can reach us by using the <span>Contact Us</span> page, accessible from the home page.</p>
-          <img src="" alt="home-contact">
-          <img src="" alt="contact-page">
+          <img src="{{url_for('static', filename='img/contact.png')}}" alt="contact-page">
           <p>As shown above, you can provide us with three things:
             <ul>
               <li>Your Name</li>
@@ -246,7 +245,7 @@
         <section id="recovery" class="main-section">          
           <header>Password Recovery</header>          
           <p>In case of loss of password, you can submit a request by clicking on <span>Forgot your password?</span> button below the <span>Login</span> section.</p>
-          <img src="" alt="recovery">
+          <img src="{{url_for('static', filename='img/password-recover.png')}}" alt="recovery">
           <p>There you will have to provide your University Roll No. and after some while, you will recieve instructions on your <span>University Email</span></p>          
         </section>
         <hr class="hr">
