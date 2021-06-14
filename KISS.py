@@ -24,7 +24,7 @@ KISS.config.update(dict(
 mail = Mail(KISS)
 bcrypt = Bcrypt(KISS)
 
-client = MongoClient("mongodb+srv://"str(os.environ.get(DB_USER))":"str(os.environ.get(DB_PASSWORD))"@cluster0.azvnt.mongodb.net/kissDB?retryWrites=true&w=majority")
+client = MongoClient("mongodb+srv://"+str(os.environ.get(DB_USER))+":"+str(os.environ.get(DB_PASSWORD))+"@cluster0.azvnt.mongodb.net/kissDB?retryWrites=true&w=majority")
 db = client["kissDB"]
 
 @KISS.route('/')

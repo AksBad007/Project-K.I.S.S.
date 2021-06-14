@@ -3,7 +3,7 @@ from pymongo import MongoClient
 
 Admin = Blueprint('Admin', __name__, url_prefix = '/admin')
 
-client = MongoClient("mongodb+srv://"str(os.environ.get(DB_USER))":"str(os.environ.get(DB_PASSWORD))"@cluster0.azvnt.mongodb.net/kissDB?retryWrites=true&w=majority")
+client = MongoClient("mongodb+srv://"+str(os.environ.get(DB_USER))+":"+str(os.environ.get(DB_PASSWORD))+"@cluster0.azvnt.mongodb.net/kissDB?retryWrites=true&w=majority")
 db = client["kissDB"]
 
 userNo = db.users.count_documents({})
