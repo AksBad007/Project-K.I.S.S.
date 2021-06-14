@@ -68,11 +68,12 @@
     <h2 class="emph offer" data-center-center="opacity:1;bottom:0;" data-0-bottom="opacity:0;bottom:-100px">So Far We Have...</h2>
 
     <section id="info">
-        <div class="admin-menu" data-center-center="opacity:2;right:0;" data-0-bottom="opacity:0;right:100px;">
+        <div class="admin-menu">
             <ul>
                 <li><a id="summary">View Summary</a></li><hr>
                 <li><a id="users">Manage Users</a></li><hr>
                 <li><a id="submissions">View Submissions</a></li><hr>
+                <li><a id="feedbacks">View Feedbacks</a></li><hr>
                 <li><a href="/changes" target="_blank" rel="noopener noreferrer">Go to Changelog Section <i class="fas fa-external-link-alt"></i></a></li><hr>
                 <li><a href="/admin/db" target="_blank">Manage DataBases <i class="fas fa-database"></i></a></li>
             </ul>
@@ -80,8 +81,8 @@
 
         <div class="summary">
             <div class="float">
-                <div class="entry"><h1>3</h1><br>Modules</div>
                 <div class="entry"><h1>{{ userNo }}</h1><br>Users</div>
+                <div class="entry"><h1>{{ feedbackNo }}</h1><br>Feedbacks</div>
             </div>
             <div class="float">
                 <div class="entry"><h1>{{ changeNo }}</h1><br>Changelog Entries</div>
@@ -114,6 +115,24 @@
                         <li>Description: {{ submission['Description'] }}</li>
                         <li style="text-align: right;">- {{ submission['Name'] }}</li>
                         <li><button type="button" onclick="location.href='/admin/db'" class="btn btn-4 btn-sep icon-send">Edit Submission</button></li>
+                    </ul>
+                </li>
+                {% endfor %}              
+            </ol>
+        </div>
+
+        <div class="feedbacks">
+            <ol>
+                {% for feedback in feedbacks %}
+                <li>
+                    <ul>
+                        <form action="/reply" method="POST">
+                            <li>Email: {{ feedback['Email'] }}</li>
+                            <li>Message: {{ feedback['Message'] }}</li>
+                            <li style="text-align: right;">- {{ feedback['Sender'] }}</li>
+                            <li>Reply: <textarea name="reply" placeholder="Message"></textarea></li>
+                            <li><button name="id" value="{{ feedback['_id'] }}" type="submit" class="btn btn-4 btn-sep icon-send">Contact Sender</button></li>
+                        </form>
                     </ul>
                 </li>
                 {% endfor %}              

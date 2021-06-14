@@ -86,7 +86,7 @@
 				<form class="cd-signin-modal__form" action="/login" method="POST">
 					<p class="cd-signin-modal__fieldset">
 						<label class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace" for="signin-email">Roll No.</label>
-						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" name="roll" id="signin-email" type="number" min="27501880501" placeholder="Roll No.">
+						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" name="roll" id="signin-email" type="number" placeholder="Roll No.">
 						<span class="cd-signin-modal__error">Please specify valid Roll Number.</span>
 					</p>
 
@@ -115,7 +115,7 @@
 
 					<p class="cd-signin-modal__fieldset">
 						<label class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace" for="signup-email">Roll No.</label>
-						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" name="roll" id="signup-email" type="number" min="27501880501" placeholder="Roll No.">
+						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" name="roll" id="signup-email" type="number" placeholder="Roll No.">
 						<span class="cd-signin-modal__error">Please specify valid Roll Number.</span>
 					</p>
 
@@ -135,10 +135,10 @@
 			<div class="cd-signin-modal__block js-signin-modal-block" data-type="reset">
 				<p class="cd-signin-modal__message">Lost your password? Please enter your University Roll text. You will receive an email for further instructions.</p>
 
-				<form class="cd-signin-modal__form" action="/recovery">
+				<form class="cd-signin-modal__form" action="/recovery" method="POST">
 					<p class="cd-signin-modal__fieldset">
 						<label class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace" for="reset-email">Roll No.</label>
-						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" name="roll" id="reset-email" type="number" min="27501880501" placeholder="Roll No.">
+						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" name="roll" id="reset-email" type="number" placeholder="Roll No.">
 						<span class="cd-signin-modal__error">Please specify valid Roll Number.</span>
 					</p>
 
@@ -193,7 +193,7 @@
                 <div id="doc" class="col left" data-center-center="opacity:1;left:-50px;" data-0-bottom="opacity:0;left:500px;">
                     <p id="desc">Can't figure out how to use something? Check the 
 						<div class="doc-button">
-							<a href="/doc"><u>Documentation</u></a>
+							<a href="/doc" target="_blank" rel="noopener noreferrer"><u>Documentation</u></a>
 						  </div>
 					</p>                                
                 </div>
@@ -242,9 +242,10 @@
 			<div class="col-xs-6 col-md-3">
 			  <h6>Quick Links</h6>
 			  <ul class="footer-links">
-				<li><a href="/changes">Changelog</a></li>
-				<li><a href="/submission">Contribute</a></li>
-				<li><a href="/doc">Documentation</a></li>
+				<li><a href="/changes" target="_blank" rel="noopener noreferrer">Changelog</a></li>
+				<li><a href="/submission" target="_blank" rel="noopener noreferrer">Contribute</a></li>
+				<li><a href="/doc" target="_blank" rel="noopener noreferrer">Documentation</a></li>
+				<li><a href="/contact" target="_blank" rel="noopener noreferrer">Contact Us</a></li>
 			  </ul>
 			</div>
 		  </div>

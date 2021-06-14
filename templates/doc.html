@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/KISS.png')}}" type="image/x-icon">	
+    <link rel="stylesheet" href="{{url_for('static', filename='css/doc.css')}}">
+    <title>Documentation</title>
+</head>
+<body class="preload">
+  <div class="loader-wrapper">
+    <div class="body">
+    <span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+    <div class="base">
+      <span></span>
+      <div class="face"></div>
+    </div>
+    </div>
+    <div class="longfazers">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <h1 class="redirect">Loading...</h1>
+  </div>
+  
+    <nav id="navbar">
+        <header class="navbar-header"><a href="/"><img src="{{url_for('static', filename='img/KISS.png')}}" alt=""> Project K.I.S.S.</a></header>
+        <ul class="navbar-elm">          
+          <section id="main-section">
+            <li><a class="nav-link" href="#introduction">Introduction</a></li>
+          </section>
+          
+          <section id="main-section">
+            <li><a class="nav-link" href="#what_you_should_already_know">What You Should Already Know</a></li>
+          </section>
+          
+          <section id="main-section">
+            <li><a class="nav-link" href="#start">Getting Started</a>
+            <ul>
+              <li><a class="nav-link" href="#signup">Signup</a></li>
+              <li><a class="nav-link" href="#login">Login</a></li>
+              <li><a class="nav-link" href="#demo">Demo</a></li>
+            </ul></li>
+          </section>
+          
+          <section id="main-section">
+            <li><a class="nav-link" href="#playground">Playground</a>
+            <ul>
+              <li><a class="nav-link" href="#code">Code Editor</a></li>
+              <li><a class="nav-link" href="#music">Music Player</a></li>
+              <li><a class="nav-link" href="#list">ToDo List</a></li>
+            </ul></li>
+          </section>
+          
+          <section id="main-section">
+            <li><a class="nav-link" href="#accDrop">Your Account</a></li>
+          </section>
+          
+          <section id="main-section">
+            <li><a class="nav-link" href="#submit">Submission of Modules</a></li>
+          </section>
+          
+          <section id="main-section">
+            <li><a class="nav-link" href="#contact">Contact Us</a></li>
+          </section>
+
+          <section id="main-section">
+            <li><a class="nav-link" href="#recovery">Password Recovery</a></li>
+          </section>
+        </ul>
+    </nav><br>
+      
+      <main id="main-doc">        
+        <section id="introduction" class="main-section">          
+          <header>Introduction</header>            
+            <p>We feel that ever since the pandemic started, people’s workflows and
+              routines have drastically been affected, especially the students. As they
+              are studying as well as working from home, A platform should be there
+              that can consolidate as many of their general-purpose applications as
+              possible in a single place, hence the project’s relevance in real life.</p>
+            <p>For instance, a user can choose a text editor to work on, while also set
+              reminders on when to submit the file. In this way, this project can greatly
+              boost user’s productivity.</p>
+            <p>The project is aimed to be an online productivity suite where the users,
+              preferably students, can practice/research their coding skills, while also
+              enjoy an intuitive environment that will keep them immersed.</p>
+            <p>The Project will provide both the average users and the admins access
+              to the following modules:</p>
+            <ul>
+              <li>A Text Editor, optimized for coding (specifically for web-design and
+                functionality purposes).</li>
+              <li>A Music Player Widget on the side.</li>
+              <li>A simple To-Do List.</li>
+              <li>A changelog section to record changes made to the site
+                throughout and after development.</li>
+              <li>A submission page where users can submit their own built
+                Modules/Ideas to be included in the suite.</li>
+              <li>A Documentation section to get better understanding of general working nad UI.</li>
+              <li>Admin privileges(only if your role is <span>Admin</span>).</li>
+            </ul>          
+        </section>        
+        <hr class="hr">
+        
+        <section id="what_you_should_already_know" class="main-section">          
+          <header>What you should already know</header>          
+          <p>This guide assumes you have the following basic background:</p>
+          <ul>
+            <li>A general understanding and knowledge of HTML, CSS and JavaScript.</li>
+            <li>Understanding of how DOM(Document Object Model) manipulation works.</li>
+            <li>A feel to play around with Document elements and their styling.</li>
+            <li>Some programming experience, particularly functional and control-flow aspects</li>
+          </ul>          
+        </section>        
+        <hr class="hr">
+        
+        <section id="start" class="main-section">          
+          <header>Getting Started</header>
+          <header id="signup" class="subhead">SignUp</header>
+          <img src="" alt="signup">
+          <p>You can sign up free for our app by using the Signup section inside the <span>Login/Signup</span> link located at the top of the home page and demo page.</p>
+          <p>While signing up, we ask for nothing but three key pieces of information from you:
+            <ul>
+              <li>Username: Could be anything from your real name to your favoriite Star Wars character. But we do recommend you using your real name.</li>
+              <li>Roll No.: Should have been provided to you by the University after enrolling(assuming the user is a GNDU student). A typical format of the roll no. is "275018805XX".</li>
+              <li>Password:
+                <ul>
+                  <li>Should be at least 8 characters</li>
+                  <li>Should have both Uppercase and Lowercase characters</li>
+                  <li>Should have at least one number</li>
+                  <li>Should have at least one special character</li>
+                </ul>
+              </li>
+            </ul>
+          </p>
+          <p>By default, every user is initially signed up as a <span>Member</span>. However, if you wanna be assigned the role of the <span>Admin</span>, you can reach us by using the "Contact Us" button at the bottom the home page.</p>
+          <p>After Signing Up, the Login/Signup section will be replaced by a drop menu which we call "Your Account" section.</p>
+
+          <header id="login" class="subhead">Login</header>
+          <img src="" alt="login">
+          <p>Just besides the Signup section is the Login section, where you can login as either a <span>Member</span> or an <span>Admin</span>, depending upon your role.</p>
+          <p>While logging in, we will ask for:
+            <ul>
+              <li>Roll No.</li>
+              <li>Password</li>
+            </ul>
+          </p>
+          <p>Similar to the Signup process, after Logging in, you will see "Your Account" section on top.</p>
+
+          <header id="demo" class="subhead">Demo</header>
+          <img src="" alt="demo">
+          <p>We understand that some users may wanna try what we have to offer first before Signing up. That's why you can use demo version of this Project by simply heading over to the <span>Demo</span> section on the home page as shown above.</p>
+          <p>Just hit <span>Try it</span> and you will be taken to a demo version of the <span>Coding Playground</span>.</p>
+          <p>Unfortunately, this version is independent of all the storage services, that is you cannot use Modules like <span>ToDo List</span> which depend heavily on database storage. However, to use such modules as well, you can always signup from the Signup section.</p>
+        </section>        
+        <hr class="hr">
+        
+        <section id="playground" class="main-section">          
+          <header>Playground</header>
+          <p>To get started with working in the playground, let's have a look at the interface first.</p>   
+          <img src="" alt="playground">       
+          
+          <header id="code" class="subhead">Code Editor</header> 
+          <p>The editor space will come with 3 coding areas where you can practice HTML, CSS and JavaScript. Just head over the respective text box and start typing. The interpreter will immediately pick up your keystrokes and execute commands/statements almost immediately.</p>
+          <p>Above the editor space is the execution area, where you will find the output of statements written by you.</p>
+          <p>Both the editor space and the execution area are resizabe. So you can change the size of the both according to your comfort.</p>
+          <p>Depending upon where or what lighting conditions you are sitting in while working, you can switch between the <span>Light Mode</span> and the <span>Dark Mode</span> for your ease. However, this will not affect the execution area so that you can always see the true output of your styling statements.</p>
+        
+          <header id="music" class="subhead">Music Player</header>
+          <p>The Music Player widget comes with pretty standard controls.<br>
+            <ul>
+              <li>Mojor chunk of the interface focuses on the track information, that is track name, artist and track length</li>
+              <li>Play/Pause button</li>
+              <li>Next/Previous Track button</li>
+              <li>Seek Slider</li>
+              <li>Random Track</li>
+              <li>Repeat Track</li>
+            </ul>
+          </p>
+
+          <header id="list" class="subhead">ToDo List</header>
+          <p>Your ToDo list is where you can remind yourself of the tasks that you have to perform or check off the ones you have already accomplished. A default <span>Sample List Item</span> will be there if you have no list entries.</p>
+          <p>To get started, simply type in you task and hit "enter" or the <span>+</span> button to save that in the list. To delete an item, simply check the checkbox next the respective item</p>
+          <p class="note">Note: It is strictly advised that you do not "uncheck" an already checked list item but rather simply add another identical item as it can intefere with the general working of the database being used to store that information and generate some undesirable errors.</p>
+        </section>        
+        <hr class="hr">
+
+        <section id="accDrop" class="main-section">          
+          <header>Your Account</header>
+          <p>Signing Up for an account entitles you with some options. These options are accessible from the <span>Your Account</span> dropdown menu located on the top of both the home page and playground page.</p>
+          <img src="" alt="accDrop">
+          <p>Given below is the explanation of all the options:
+            <ul>
+              <li>Code: takes you to the "Coding Playground"</li>
+              <li>Edit Profile: allows you to change your username and password.</li>
+              <li>Help: takes you to the "Documentation" page(which is where you already are).</li>
+              <li>Logout: logs you out your account.</li>
+            </ul>
+          </p>
+          <p class="note">Note: All the information mentioned above is mandatory and should be correct.</p>
+        </section>
+        <hr class="hr">
+        
+        <section id="submit" class="main-section">          
+          <header>Submission of Modules</header>          
+          <p>Doesn't matter if you are a user or not, you can contribute to the project by heading over to the <span>Submit</span> section from the home page.</p>
+          <img src="" alt="home-submit">
+          <img src="" alt="submit-page">
+          <p>After clicking on the <span>I GOT SOMETHING TO SUBMIT!!!</span> button, you will be taken to the submission page. There, you will have to provide four things:
+            <ul>
+              <li>Your Name</li>
+              <li>Module/App Name</li>
+              <li>Module/App Link</li>
+              <li>Module/App Description</li>
+            </ul>
+          </p>
+          <p class="note">Note: All the information mentioned above is mandatory and should be correct.</p>
+        </section>
+        <hr class="hr">
+
+        <section id="contact" class="main-section">          
+          <header>Contact Us Page</header>          
+          <p>For assignments of roles, report any bugs or any other query, you can reach us by using the <span>Contact Us</span> page, accessible from the home page.</p>
+          <img src="" alt="home-contact">
+          <img src="" alt="contact-page">
+          <p>As shown above, you can provide us with three things:
+            <ul>
+              <li>Your Name</li>
+              <li>Your Email</li>
+              <li>Your Message</li>
+            </ul>
+          </p>
+        </section>
+        <hr class="hr">
+
+        <section id="recovery" class="main-section">          
+          <header>Password Recovery</header>          
+          <p>In case of loss of password, you can submit a request by clicking on <span>Forgot your password?</span> button below the <span>Login</span> section.</p>
+          <img src="" alt="recovery">
+          <p>There you will have to provide your University Roll No. and after some while, you will recieve instructions on your <span>University Email</span></p>          
+        </section>
+        <hr class="hr">
+      </main>
+
+      <footer style="text-align: center;">
+        Made with ❤️ by <a href="https://aksbad007.github.io/CV/">Akshat Arora</a>.
+      </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="{{url_for('static', filename='js/loader-min.js')}}"></script>
+</body>
+</html>

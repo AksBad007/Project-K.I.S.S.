@@ -34,16 +34,8 @@
     </div>
     
     <div id="listParent" class="box">
-        {% for item in ListItems[2:] %}
-        <form action="/del" method="POST">
-            <div class="item">
-                {% for item in list %}
-                <input id="list-check" type="checkbox" name="check" value={{ item.id }} onChange="this.form.submit()">
-                <p id="list-p">{{ item.name }}</p>
-                {% endfor %}
-            </div>
+        <form id="delForm" action="/del" method="POST">
         </form>
-        {% endfor %}
 
         <form action="/playground" id="item" method="POST">
             <input id="newItem" type="text" name="newItem" placeholder="New Item" autocomplete="off">
@@ -54,13 +46,5 @@
 {% endblock %}
 
 {% block script %}
-<script>    
-    document.querySelector("#list-btn").addEventListener('click',()=>{
-        const div = document.createElement('div'); const i =  document.createElement('input'); const para = document.createElement('p')
-        i.type = 'checkbox'; i.name = 'check'; i.id = 'list-check'
-        para.id = "list-p"; para.innerText = document.querySelector('#newItem').value
-        div.className = 'item'; div.append(i); div.append(para)
-        document.querySelector("#listParent").insertBefore(div, document.querySelector("#listParent").children[0])
-    })
-</script>
+<script src="{{url_for('static', filename='js/list.js')}}"></script>
 {% endblock %}

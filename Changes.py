@@ -3,7 +3,7 @@ from pymongo import MongoClient
 
 Changelog = Blueprint('Changelog', __name__, url_prefix='/changes')
 
-client = MongoClient('localhost', 27017)
+client = MongoClient("mongodb+srv://"str(os.environ.get(DB_USER))":"str(os.environ.get(DB_PASSWORD))"@cluster0.azvnt.mongodb.net/kissDB?retryWrites=true&w=majority")
 db = client.kissDB
 
 @Changelog.route('/', methods=['GET'])
@@ -15,6 +15,6 @@ def addChange():
     if request.method == "GET":
         return render_template('addChange.html')
     else:
-        newChange = {"ver": "----------"+request.form['ver']+"----------", "desc": request.form['desc']}
+        newChange = {"ver": "---------- "+request.form['ver']+" ----------", "desc": request.form['desc']}
         db.changes.insert_one(newChange)
         return redirect(url_for('Changelog.changePage'))

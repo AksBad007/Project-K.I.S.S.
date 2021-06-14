@@ -1,22 +1,24 @@
-from flask import Blueprint, render_template, redirect, request, url_for, session, abort
+from flask import Blueprint, render_template, redirect, session, abort
 from pymongo import MongoClient
 
 Admin = Blueprint('Admin', __name__, url_prefix = '/admin')
 
-client = MongoClient("mongodb+srv://AksBad007:imbatman17@cluster0.azvnt.mongodb.net/kissDB?retryWrites=true&w=majority")
+client = MongoClient("mongodb+srv://"str(os.environ.get(DB_USER))":"str(os.environ.get(DB_PASSWORD))"@cluster0.azvnt.mongodb.net/kissDB?retryWrites=true&w=majority")
 db = client["kissDB"]
 
 userNo = db.users.count_documents({})
 users = db.users.find()
+submits = db.submissions.find()
+feedbacks = db.feedbacks.find()
 changeNo = db.changes.count_documents({})
 submitNo = db.submissions.count_documents({})
-submits = db.submissions.find()
+feedbackNo = db.feedbacks.count_documents({})
 
 @Admin.route('/')
 def admin():
     if 'username' not in session or session['role'] == 'Member':
         abort(404)
-    return render_template('admin.html', username=session['username'], users=users, userNo=userNo, changeNo=changeNo, submitNo=submitNo, submits=submits)
+    return render_template('admin.html', username=session['username'], users=users, userNo=userNo, changeNo=changeNo, submitNo=submitNo, submits=submits, feedbackNo=feedbackNo, feedbacks=feedbacks)
 
 @Admin.route('/db')
 def db():

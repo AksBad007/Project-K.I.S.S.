@@ -58,6 +58,10 @@ hr {
     transition: opacity 1s;
 }
 
+textarea{
+  background-color: #ff96ad;
+}
+
 .admin-menu li a {
     padding: 9%;
     margin: 11%;
@@ -90,7 +94,7 @@ li ul li {
 
 button { cursor: pointer; }
 
-.users, .submissions {
+.users, .submissions, .feedbacks {
     font-family: 'Josefin Sans', sans-serif;
     font-size: larger;
     position: absolute;

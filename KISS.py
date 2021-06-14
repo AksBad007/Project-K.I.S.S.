@@ -1,22 +1,30 @@
 import os
-from flask import Flask, render_template, request, redirect, session, url_for, abort, flash
-from flask_session import Session
+from random import seed, randint
+from flask import Flask, render_template, request, redirect, session, url_for, abort, flash, jsonify, json
 from flask_bcrypt import Bcrypt
+from flask_mail import Mail, Message
 from pymongo import MongoClient
 from bson.objectid import ObjectId
+from bson.json_util import dumps
 from Changes import Changelog
 from Admin import Admin
 import datetime
 
 KISS = Flask(__name__)
 KISS.secret_key = os.environ.get('SECRET_KEY')
-
 KISS.register_blueprint(Changelog)
 KISS.register_blueprint(Admin)
-
+KISS.config.update(dict(
+    MAIL_SERVER = 'smtp.gmail.com',
+    MAIL_PORT = 465,
+    MAIL_USE_SSL = True,
+    MAIL_USERNAME = os.environ.get(MAIL_USERNAME),
+    MAIL_PASSWORD = os.environ.get(MAIL_PASSWORD)
+))
+mail = Mail(KISS)
 bcrypt = Bcrypt(KISS)
 
-client = MongoClient("mongodb+srv://"+str(os.environ.get('DB_USER'))+":"+str(os.environ.get('DB_PASSWORD'))+"@cluster0.azvnt.mongodb.net/kissDB?retryWrites=true&w=majority")
+client = MongoClient("mongodb+srv://"str(os.environ.get(DB_USER))":"str(os.environ.get(DB_PASSWORD))"@cluster0.azvnt.mongodb.net/kissDB?retryWrites=true&w=majority")
 db = client["kissDB"]
 
 @KISS.route('/')
@@ -84,37 +92,53 @@ def signup():
         session["role"] = "Member"
         return redirect('/')
 
+@KISS.route('/recovery', methods=['POST'])
+def recovery():
+    recoverFor = db.users.find_one({"Roll No": int(request.form['roll'])})
+    senderName = recoverFor['Name']
+    recipients = [request.form['roll']+"@gndu.ac.in"]
+
+    msg = Message("[Project K.I.S.S.] Password Recovery Issue", sender=senderName, recipients=recipients)
+    msg.body = "Hello There!!! \nWe recently recieved a request to change your password for your Project K.I.S.S. account. If that wasn't you, rest assured we won't do anything. But if it was indeed you, we urge you to reply to this email as soon as possible so that we can provide you that awesome experience again. \n \n- Project K.I.S.S. Dev, Keeping It Simple Stupid."
+    mail.send(msg)
+    return redirect('/')
+
+@KISS.route('/json', methods=['GET', 'POST'])
+def jsonApi():
+    foundItems = db.items.find({"userRoll": session['roll']})
+    listfound = list(foundItems)
+    variable = json.loads(dumps(listfound))
+    return jsonify({"items":variable})
+
 @KISS.route('/playground', methods=['GET', 'POST'])
 def playground():
     if 'username' in session:
         item=0
-        defaultItem = { 
+        defaultItem = {
             "userRoll": session['roll'],
             "listItems": [{"id": item, "name": "Sample List Item"}]
         }
-        item+=1
+        item=randint(0,1000)
 
         if request.method == "GET":
-            date = datetime.datetime.now().strftime("%A, %b %d")
-            foundItems = db.items.find({"userRoll": session['roll']})
-            
+            date = datetime.datetime.now().strftime("%A, %b %d")            
             if db.items.count_documents({"userRoll": session['roll']}) == 0:
                 db.items.insert_one(defaultItem)                
                 return redirect('/playground')
-            else:
-                return render_template('main.html', username=session['username'], role=session['role'], listTitle=date, ListItems=foundItems)
-        else:
-            item+=1
-            db.items.update_one({"userRoll": session['roll']}, {"$push": {"listItems": {"id": item, "name": request.form['newItem']}}})            
+            else:                
+                return render_template('main.html', username=session['username'], role=session['role'], listTitle=date)
+        else:            
+            db.items.update_one({"userRoll": session['roll']}, {"$push": {"listItems": {"id": item, "name": request.form['newItem']}}})
             return "", 204
     else:
         abort(404)
+    item=item+1
 
 @KISS.route('/del', methods=['POST'])
 def delete():
-    checkedId = request.form['check']
-    db.items.delete_many({"_id": ObjectId(checkedId)})
-    return "", 204
+    checkedId = int(request.form['check'])
+    db.items.update_one({"userRoll": session['roll']}, {"$pull": {"listItems": {"id": checkedId}}})
+    return redirect('/playground')
 
 @KISS.route('/demo')
 def demo():
@@ -123,6 +147,30 @@ def demo():
 @KISS.route('/doc')
 def doc():
     return render_template('doc.html')
+
+@KISS.route('/contact', methods=['GET', 'POST'])
+def contact():
+    if request.method == 'GET':
+        return render_template('contact.html')
+    else:
+        feedback = {
+            "Sender": request.form['senderName'],
+            "Email": request.form['senderMail'],
+            "Message": request.form['msg']
+        }
+        db.feedbacks.insert_one(feedback)
+        return "", 204
+
+@KISS.route('/reply', methods = ['POST'])
+def reply():
+    replyTo = db.feedbacks.find_one({"_id": ObjectId(request.form['id'])})
+    senderName = replyTo['Sender']
+    recipients = [replyTo['Email']]
+
+    msg = Message("From Project K.I.S.S. Devs to "+senderName, sender=senderName, recipients=recipients)
+    msg.body = request.form['reply']
+    mail.send(msg)
+    return redirect('/admin')
 
 @KISS.route('/submission', methods=['GET','POST'])
 def submit():
@@ -136,8 +184,7 @@ def submit():
         }
         db.submissions.insert_one(submission)
         return "", 204
-    else:
-        return render_template('/submission.html')
+    return render_template('/submission.html')
 
 client.close()
 

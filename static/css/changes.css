@@ -18,7 +18,9 @@
 .footer-padding {
 	padding-bottom: 60px;
 }
-
+h1 {
+    text-align: center;
+}
 .footer {
 	position: absolute;
 	text-align: center;
