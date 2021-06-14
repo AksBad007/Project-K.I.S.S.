@@ -162,6 +162,10 @@
   flex-direction: column;
 }
 
+.image {
+  border-radius: 50px;
+}
+
 .editor-img {
   border-radius: 50px;
   right: 5%;
