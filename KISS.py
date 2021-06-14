@@ -18,13 +18,13 @@ KISS.config.update(dict(
     MAIL_SERVER = 'smtp.gmail.com',
     MAIL_PORT = 465,
     MAIL_USE_SSL = True,
-    MAIL_USERNAME = os.environ.get(MAIL_USERNAME),
-    MAIL_PASSWORD = os.environ.get(MAIL_PASSWORD)
+    MAIL_USERNAME = os.environ.get('MAIL_USERNAME'),
+    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
 ))
 mail = Mail(KISS)
 bcrypt = Bcrypt(KISS)
 
-client = MongoClient("mongodb+srv://"+str(os.environ.get(DB_USER))+":"+str(os.environ.get(DB_PASSWORD))+"@cluster0.azvnt.mongodb.net/kissDB?retryWrites=true&w=majority")
+client = MongoClient("mongodb+srv://"+str(os.environ.get('DB_USER'))+":"+str(os.environ.get('DB_PASSWORD'))+"@cluster0.azvnt.mongodb.net/kissDB?retryWrites=true&w=majority")
 db = client["kissDB"]
 
 @KISS.route('/')

@@ -4,7 +4,7 @@ from pymongo import MongoClient
 
 Changelog = Blueprint('Changelog', __name__, url_prefix='/changes')
 
-client = MongoClient("mongodb+srv://"+str(os.environ.get(DB_USER))+":"+str(os.environ.get(DB_PASSWORD))+"@cluster0.azvnt.mongodb.net/kissDB?retryWrites=true&w=majority")
+client = MongoClient("mongodb+srv://"+str(os.environ.get('DB_USER'))+":"+str(os.environ.get('DB_PASSWORD'))+"@cluster0.azvnt.mongodb.net/kissDB?retryWrites=true&w=majority")
 db = client["kissDB"]
 
 @Changelog.route('/', methods=['GET'])
