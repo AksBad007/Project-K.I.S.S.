@@ -92,7 +92,7 @@
 
 					<p class="cd-signin-modal__fieldset">
 						<label class="cd-signin-modal__label cd-signin-modal__label--password cd-signin-modal__label--image-replace" for="signin-password">Password</label>
-						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" name="password" id="signin-password" type="password"  placeholder="Password">
+						<input minlength="8" class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" name="password" id="signin-password" type="password"  placeholder="Password">
 						<a href="#0" class="cd-signin-modal__hide-password js-hide-password">Show</a>
 						<span class="cd-signin-modal__error">Please specify a valid Password.</span>
 					</p>
@@ -121,7 +121,7 @@
 
 					<p class="cd-signin-modal__fieldset">
 						<label class="cd-signin-modal__label cd-signin-modal__label--password cd-signin-modal__label--image-replace" for="signup-password">Password</label>
-						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" name="password" id="signup-password" type="password"  placeholder="Password">
+						<input minlength="8" class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" name="password" id="signup-password" type="password"  placeholder="Password">
 						<a href="#0" class="cd-signin-modal__hide-password js-hide-password">Show</a>
 						<span class="cd-signin-modal__error">Please specify a valid Password.</span>
 					</p>
@@ -175,7 +175,7 @@
             </div>
             <div class="row">
                 <div class="col left" data-center-center="opacity:1;left:-50px;" data-0-bottom="opacity:0;left:500px;">
-                    <p id="desc">Never forget any of your important tasks. ALWAYS there for u will be our handy To-Do List reminding you of what matters the most.</p>                                
+                    <p id="desc">Never forget any of your important tasks. ALWAYS there for you will be our handy To-Do List reminding you of what matters the most.</p>                                
                 </div>
                 <div class="col" data-center-center="opacity:1;right:-50px;" data-0-bottom="opacity:0;right:500px;">
                     <img class="list image" src="{{url_for('static', filename='img/list.png')}}" alt="List GIF">
@@ -191,7 +191,7 @@
             </div>
 			<div class="row">
                 <div id="doc" class="col left" data-center-center="opacity:1;left:-50px;" data-0-bottom="opacity:0;left:500px;">
-                    <p id="desc">Can't figure out how to use something? Check the 
+                    <p id="desc">Can't figure out how to use something? Check
 						<div class="doc-button">
 							<a href="/doc" target="_blank" rel="noopener noreferrer"><u>Documentation</u></a>
 						  </div>
@@ -255,8 +255,7 @@
 			  <p class="copyright-text">&copy; 2021 Made with ❤️ by 
 		   <a href="https://aksbad007.github.io/CV/">Akshat Arora</a>.
 			  </p>
-			</div>
-  
+			</div>  
 		  </div>
 		</div>
   	</footer>	  
