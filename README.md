@@ -1,5 +1,11 @@
 # Project K.I.S.S.: Keep It Simple Stupid (Flask Version)
 
+<div align = "center">
+
+[![Flask](https://img.shields.io/badge/Flask-white?style=flat-square)](https://flask.palletsprojects.com/en/2.0.x/)
+[![Heroku](https://img.shields.io/badge/Project(Heroku)-pink?style=flat-square)](https://projectkiss.herokuapp.com/)
+</div><br>
+
 ### Inroduction
 
 - Built on top of Flask, Project K.I.S.S. is a playground where frontend developers can practice their HTML, CSS and JavaScript skills by executing all three in real-time right on their browser screens.
