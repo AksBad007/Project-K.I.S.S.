@@ -1,4 +1,4 @@
-# Project K.I.S.S.: Keep It Simple Stupid (Flask Version)
+# Project K.I.S.S.: Keep It Simple Stupid
 
 <div align = "center">
 
