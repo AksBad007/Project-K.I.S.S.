@@ -3,7 +3,7 @@
 <div align = "center">
 
 [![Flask](https://img.shields.io/badge/Flask-white?style=flat-square)](https://flask.palletsprojects.com/en/2.0.x/)
-[![Heroku](https://img.shields.io/badge/Project(Vercel)-pink?style=flat-square)](https://project-k-i-s-s.vercel.app/)
+[![Heroku](https://img.shields.io/badge/Project(Vercel)-pink?style=flat-square)](http://project-k-i-s-s-aksbad007.vercel.app/)
 </div><br>
 
 ### Inroduction
